@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jordan Cole — Meditation is for Everybody</title>
+  <meta name="description" content="Meditation is just a tool. A ridiculously simple and powerful one. Jordan Cole helps you use it to make real, tangible changes in your life.">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            parchment: '#fdfbf7',
+            'parchment-dark': '#f5f0e8',
+            slate: {
+              deep: '#2c2520',
+              warm: '#4a3f37',
+              mid: '#7a6e64',
+              soft: '#a89e94',
+            },
+            terracotta: '#c4856c',
+            sage: '#8a9a7b',
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['DM Sans', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: #fdfbf7; color: #2c2520; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+    
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+    }
+
+    /* Scroll reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
+    .reveal-delay-4 { transition-delay: 0.6s; }
+
+    /* Hero section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/hero-bg.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      filter: brightness(0.4) saturate(0.6);
+    }
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(253, 251, 247, 0.05) 0%,
+        rgba(44, 37, 32, 0.3) 50%,
+        rgba(253, 251, 247, 1) 100%
+      );
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(253, 251, 247, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(44, 37, 32, 0.06);
+      padding: 0.75rem 2rem;
+    }
+    nav .nav-links a {
+      color: rgba(253, 251, 247, 0.8);
+      transition: color 0.3s ease;
+    }
+    nav.scrolled .nav-links a {
+      color: #4a3f37;
+    }
+    nav .nav-links a:hover {
+      color: #fdfbf7;
+    }
+    nav.scrolled .nav-links a:hover {
+      color: #2c2520;
+    }
+    nav .logo-img {
+      filter: brightness(0) invert(1);
+      transition: filter 0.4s ease;
+    }
+    nav.scrolled .logo-img {
+      filter: none;
+    }
+
+    /* Principle cards */
+    .principle-card {
+      position: relative;
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(44, 37, 32, 0.08);
+      background: rgba(253, 251, 247, 0.6);
+      transition: all 0.4s ease;
+    }
+    .principle-card:hover {
+      background: rgba(253, 251, 247, 1);
+      border-color: rgba(44, 37, 32, 0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(44, 37, 32, 0.06);
+    }
+    .principle-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      line-height: 1;
+      color: rgba(44, 37, 32, 0.08);
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+    }
+
+    /* Email form */
+    .email-input {
+      background: transparent;
+      border: 1px solid rgba(44, 37, 32, 0.2);
+      padding: 1rem 1.25rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      color: #2c2520;
+      outline: none;
+      transition: border-color 0.3s ease;
+      width: 100%;
+    }
+    .email-input::placeholder {
+      color: #a89e94;
+    }
+    .email-input:focus {
+      border-color: #4a3f37;
+    }
+    .submit-btn {
+      background: #2c2520;
+      color: #fdfbf7;
+      padding: 1rem 2.5rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .submit-btn:hover {
+      background: #4a3f37;
+    }
+
+    /* Divider */
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: rgba(44, 37, 32, 0.2);
+      margin: 0 auto;
+    }
+
+    /* Headshot */
+    .headshot-wrapper {
+      position: relative;
+    }
+    .headshot-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border: 1px solid rgba(44, 37, 32, 0.08);
+      pointer-events: none;
+    }
+
+    /* Breathing dot */
+    .breathing-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #c4856c;
+      animation: breathe 4s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.8); opacity: 1; }
+    }
+
+    /* Horizontal scroll on mobile for principles */
+    @media (max-width: 768px) {
+      .principles-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding-bottom: 1rem;
+      }
+      .principles-grid::-webkit-scrollbar { display: none; }
+      .principle-card {
+        min-width: 85vw;
+        scroll-snap-align: start;
+      }
+    }
+
+    /* Quote styling */
+    .pull-quote {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .pull-quote::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #c4856c, transparent);
+    }
+
+    /* Mobile nav */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(253, 251, 247, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: #2c2520;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: #c4856c; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="#" class="flex items-center">
+        <img src="images/logo.svg" alt="Jordan Cole" class="logo-img h-10 w-auto" />
+      </a>
+      <div class="nav-links hidden md:flex items-center gap-8 text-sm tracking-wide">
+        <a href="#philosophy" class="no-underline font-sans">Philosophy</a>
+        <a href="#principles" class="no-underline font-sans">Principles</a>
+        <a href="#about" class="no-underline font-sans">About</a>
+        <a href="#course" class="no-underline font-sans">Free Course</a>
+      </div>
+      <button id="menuToggle" class="md:hidden relative z-[101] w-8 h-8 flex flex-col justify-center items-center gap-1.5" aria-label="Menu">
+        <span class="menu-line w-6 h-px bg-current transition-all duration-300"></span>
+        <span class="menu-line w-6 h-px bg-current transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#philosophy" onclick="closeMobileMenu()">Philosophy</a>
+    <a href="#principles" onclick="closeMobileMenu()">Principles</a>
+    <a href="#about" onclick="closeMobileMenu()">About</a>
+    <a href="#course" onclick="closeMobileMenu()">Free Course</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-gradient"></div>
+    <div class="relative z-10 text-center px-6 max-w-3xl mx-auto" style="margin-top: -4rem;">
+      <div class="flex justify-center mb-8">
+        <div class="breathing-dot"></div>
+      </div>
+      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-parchment leading-tight tracking-tight mb-6" style="text-shadow: 0 2px 40px rgba(0,0,0,0.3);">
+        Life isn't supposed to<br>feel this heavy.
+      </h1>
+      <p class="font-sans text-base sm:text-lg text-parchment/70 max-w-lg mx-auto leading-relaxed mb-10" style="text-shadow: 0 1px 20px rgba(0,0,0,0.4);">
+        The answer isn't on Instagram. Or Google. Or ChatGPT.<br class="hidden sm:block"> It's already within you.
+      </p>
+      <a href="#philosophy" class="inline-block font-sans text-sm tracking-widest uppercase text-parchment/60 hover:text-parchment transition-colors duration-300" style="text-shadow: 0 1px 10px rgba(0,0,0,0.4);">
+        Scroll &darr;
+      </a>
+    </div>
+  </section>
+
+  <!-- Philosophy / The Screwdriver -->
+  <section id="philosophy" class="py-24 sm:py-32 px-6">
+    <div class="max-w-2xl mx-auto">
+      <div class="reveal">
+        <p class="font-sans text-xs tracking-[0.25em] uppercase text-slate-soft mb-12">The Philosophy</p>
+      </div>
+      <h2 class="reveal font-serif text-3xl sm:text-4xl md:text-5xl font-light leading-snug mb-10 text-slate-deep">
+        Forget everything you've ever heard about meditation.
+      </h2>
+      <div class="reveal space-y-6 font-sans text-slate-warm text-base sm:text-lg leading-relaxed">
+        <p>
+          For a long time, meditation felt like something that belonged to other people. People with incense and
+          mantras and the ability to sit cross-legged without their legs falling asleep.
+        </p>
+        <p>
+          It's not that. Not here, anyway.
+        </p>
+        <p>
+          Here, we look at meditation the same way we'd look at a screwdriver &mdash; <em>it's just a tool.</em>
+        </p>
+        <p>
+          An incredibly simple and powerful tool.
+        </p>
+        <p>
+          You don't need to believe in anything. You don't need to change who you are.
+          You just need five minutes and the willingness to sit still long enough to hear what
+          you already know.
+        </p>
+      </div>
+      <div class="reveal mt-16">
+        <div class="pull-quote">
+          <p class="font-serif text-2xl sm:text-3xl font-light italic text-slate-deep leading-snug">
+            Whatever you're looking for &mdash; less stress, feeling less stuck,
+            a clearer sense of direction &mdash; you already know how to find it.
+            You just have to get quiet enough to remember the way.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="divider"></div>
+
+  <!-- How It Works -->
+  <section class="py-24 sm:py-32 px-6">
+    <div class="max-w-2xl mx-auto">
+      <div class="reveal">
+        <p class="font-sans text-xs tracking-[0.25em] uppercase text-slate-soft mb-12">How It Works</p>
+      </div>
+      <div class="reveal space-y-8">
+        <div class="flex items-start gap-6">
+          <span class="font-serif text-5xl font-light text-slate-deep/10 leading-none shrink-0 pt-1">1</span>
+          <p class="font-sans text-slate-warm text-base sm:text-lg leading-relaxed">
+            <strong class="text-slate-deep font-medium">Pause.</strong> Build an intentional pause into your day.
+            Five minutes of sitting still, observing your breath. That's it.
+          </p>
+        </div>
+        <div class="flex items-start gap-6">
+          <span class="font-serif text-5xl font-light text-slate-deep/10 leading-none shrink-0 pt-1">2</span>
+          <p class="font-sans text-slate-warm text-base sm:text-lg leading-relaxed">
+            <strong class="text-slate-deep font-medium">Observe.</strong> Your mind will wander.
+            That's not a bug, it's a feature. When you catch a thought, you learn
+            something about yourself.
+          </p>
+        </div>
+        <div class="flex items-start gap-6">
+          <span class="font-serif text-5xl font-light text-slate-deep/10 leading-none shrink-0 pt-1">3</span>
+          <p class="font-sans text-slate-warm text-base sm:text-lg leading-relaxed">
+            <strong class="text-slate-deep font-medium">Learn.</strong> Over time, the thoughts you keep coming back to
+            become the perfect roadmap to any action you've been overlooking.
+          </p>
+        </div>
+        <div class="flex items-start gap-6">
+          <span class="font-serif text-5xl font-light text-slate-deep/10 leading-none shrink-0 pt-1">4</span>
+          <p class="font-sans text-slate-warm text-base sm:text-lg leading-relaxed">
+            <strong class="text-slate-deep font-medium">Take action.</strong> Use what you've learned to make real,
+            tangible changes. The sitting and the doing are equally important.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="divider"></div>
+
+  <!-- 4 Core Principles -->
+  <section id="principles" class="py-24 sm:py-32 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal text-center mb-16">
+        <p class="font-sans text-xs tracking-[0.25em] uppercase text-slate-soft mb-4">Four Core Principles</p>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-slate-deep">
+          The foundation.
+        </h2>
+      </div>
+      <div class="principles-grid grid md:grid-cols-2 gap-6">
+        <!-- Principle 1 -->
+        <div class="principle-card reveal reveal-delay-1">
+          <span class="principle-num">01</span>
+          <h3 class="font-serif text-2xl font-normal text-slate-deep mb-4">Within, Not Without</h3>
+          <p class="font-sans text-slate-warm leading-relaxed">
+            It may feel like you really just want that new Escalade because it's a rad car. But
+            what we're all really after is some form of love, acceptance, peace, or joy. You will
+            never find those things outside of yourself. They can only be found within.
+          </p>
+        </div>
+        <!-- Principle 2 -->
+        <div class="principle-card reveal reveal-delay-2">
+          <span class="principle-num">02</span>
+          <h3 class="font-serif text-2xl font-normal text-slate-deep mb-4">Intuition</h3>
+          <p class="font-sans text-slate-warm leading-relaxed">
+            Meditation is the best tool we have to reconnect to the knowing inside of us.
+            The quiet voice that will guide you back to the love, peace, and joy you've been looking
+            for &mdash; when you're still enough to hear it.
+          </p>
+        </div>
+        <!-- Principle 3 -->
+        <div class="principle-card reveal reveal-delay-3">
+          <span class="principle-num">03</span>
+          <h3 class="font-serif text-2xl font-normal text-slate-deep mb-4">Reflection</h3>
+          <p class="font-sans text-slate-warm leading-relaxed">
+            What is going on inside of you is reflected in your external experience. A mind that
+            is more aware of itself can guide you into a more peaceful, loving state. As within,
+            so without.
+          </p>
+        </div>
+        <!-- Principle 4 -->
+        <div class="principle-card reveal reveal-delay-4">
+          <span class="principle-num">04</span>
+          <h3 class="font-serif text-2xl font-normal text-slate-deep mb-4">Action</h3>
+          <p class="font-sans text-slate-warm leading-relaxed">
+            When you feel too afraid to make any moves, that is precisely the time to take action.
+            Stillness and action work together &mdash; stilling the mind and breaking through old patterns
+            to bring you closer to your true self.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-24 sm:py-32 px-6" style="background: linear-gradient(to bottom, #fdfbf7, #f5f0e8, #fdfbf7);">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-5 gap-12 md:gap-16 items-center">
+        <div class="md:col-span-2 flex justify-center reveal">
+          <div class="headshot-wrapper inline-block">
+            <img
+              src="images/jordan-headshot.jpg"
+              alt="Jordan Cole"
+              class="w-64 sm:w-72 md:w-full max-w-xs object-cover grayscale-[20%]"
+              style="aspect-ratio: 4/5; object-position: center top;"
+            />
+          </div>
+        </div>
+        <div class="md:col-span-3 reveal">
+          <p class="font-sans text-xs tracking-[0.25em] uppercase text-slate-soft mb-6">About</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-light text-slate-deep leading-snug mb-8">
+            I don't have the answers.<br>But I can show you how<br>to find yours.
+          </h2>
+          <div class="space-y-5 font-sans text-slate-warm text-base leading-relaxed">
+            <p>
+              I'm Jordan. I've meditated for nearly a decade, spent years traveling the world, and
+              eventually found my way back home &mdash; to the everyday, real-world stuff that most of
+              us are navigating.
+            </p>
+            <p>
+              I don't have a guru voice or a secret formula. What I do have is a consistent practice that
+              fundamentally changed the way I experience my life. And a stubborn belief that this simple
+              tool can do the same for anyone.
+            </p>
+            <p>
+              The work isn't complicated. Sit. Observe. Learn. Act. Repeat.
+            </p>
+            <p class="text-slate-deep font-medium">
+              But it's also not easy &mdash; if it were, everyone would do it and we'd all be walking
+              around with golden retriever energy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Magnet / Course -->
+  <section id="course" class="py-24 sm:py-32 px-6">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="reveal">
+        <p class="font-sans text-xs tracking-[0.25em] uppercase text-slate-soft mb-6">Free 14-Day Course</p>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-slate-deep leading-snug mb-6">
+          Meditation is<br>for Everybody.
+        </h2>
+        <p class="font-sans text-slate-warm text-base sm:text-lg leading-relaxed max-w-lg mx-auto mb-4">
+          14 days. 5 minutes each. No incense required.
+        </p>
+        <p class="font-sans text-slate-mid text-sm leading-relaxed max-w-md mx-auto mb-12">
+          A free email course that walks you through building a meditation practice from
+          scratch &mdash; with real tools, no fluff, and zero judgment if you spend the
+          whole time thinking about how bad you are at small talk.
+        </p>
+      </div>
+      <div class="reveal">
+        <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4">
+          <input
+            type="email"
+            placeholder="Your email address"
+            class="email-input flex-1"
+            aria-label="Email address"
+          />
+          <button class="submit-btn" type="button">
+            START THE COURSE
+          </button>
+        </div>
+        <p class="font-sans text-xs text-slate-soft">
+          No spam. Just 14 emails that might change how you see everything.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Quote -->
+  <section class="py-20 sm:py-28 px-6">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <div class="flex justify-center mb-8">
+        <div class="breathing-dot"></div>
+      </div>
+      <p class="font-serif text-2xl sm:text-3xl md:text-4xl font-light italic text-slate-deep leading-snug">
+        The simplest thing in the universe.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-slate-deep/5">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <img src="images/logo.svg" alt="Jordan Cole" class="h-7 w-auto opacity-70" />
+      <p class="font-sans text-xs text-slate-soft tracking-wide">
+        &copy; 2026 Jordan Cole. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll behavior
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    menuToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.classList.add('open');
+        menuToggle.querySelector('.menu-line:first-child').style.transform = 'rotate(45deg) translateY(4px)';
+        menuToggle.querySelector('.menu-line:last-child').style.transform = 'rotate(-45deg) translateY(-4px)';
+      } else {
+        closeMobileMenu();
+      }
+    });
+
+    function closeMobileMenu() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      menuToggle.querySelector('.menu-line:first-child').style.transform = '';
+      menuToggle.querySelector('.menu-line:last-child').style.transform = '';
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
