@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jordan Cole — Meditation is for Everybody</title>
+  <meta name="description" content="What you're looking for is already inside of you. Jordan Cole uses meditation as a tool to help you reconnect with how rad life truly is.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --parchment: #fdfbf7;
+      --parchment-dark: #f3ede3;
+      --slate: #2c2c2c;
+      --slate-light: #5a5a5a;
+      --amber: #c48a3a;
+      --amber-hover: #a8732e;
+      --amber-soft: #d9b87a;
+      --amber-glow: rgba(196,138,58,0.12);
+      --warm-gray: #a39e95;
+      --earth-dark: #252220;
+      --earth-mid: #2a2720;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--parchment);
+      color: var(--slate);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .grain::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      pointer-events: none;
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      background: var(--earth-dark);
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.1) 25%,
+        rgba(0,0,0,0.4) 50%,
+        rgba(30,28,24,0.8) 70%,
+        var(--earth-dark) 90%,
+        var(--earth-dark) 100%
+      );
+    }
+
+    /* Guaranteed solid bar at hero bottom */
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 10vh;
+      background: var(--earth-dark);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem 1.5rem 12vh;
+      max-width: 620px;
+      animation: fadeUp 1s ease-out 0.3s both;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--amber-soft);
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-headline {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.4rem;
+      line-height: 1.1;
+      font-weight: 400;
+      color: #fff;
+      letter-spacing: -0.005em;
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.65;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out 2s forwards, softBounce 2.5s ease-in-out infinite 2.5s;
+    }
+
+    .scroll-hint svg {
+      width: 18px;
+      height: 18px;
+      stroke: rgba(255,255,255,0.4);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    @keyframes softBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(5px); }
+    }
+
+    /* ============================================
+       SHARED
+       ============================================ */
+    section {
+      padding: 4.5rem 1.5rem;
+      position: relative;
+    }
+
+    .section-inner {
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.85rem;
+    }
+
+    .section-headline {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.1rem;
+      font-weight: 400;
+      line-height: 1.18;
+      color: var(--slate);
+      margin-bottom: 1.1rem;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--slate-light);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ============================================
+       ABOUT / STORY
+       ============================================ */
+    .about {
+      background: var(--parchment);
+      padding-top: 4rem;
+    }
+
+    .headshot-wrapper {
+      text-align: center;
+      margin-bottom: 2.25rem;
+    }
+
+    .headshot {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid var(--parchment);
+      box-shadow: 0 10px 32px rgba(0,0,0,0.09);
+    }
+
+    .about-intro {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.5rem;
+      line-height: 1.35;
+      color: var(--slate);
+      text-align: center;
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+    }
+
+    .story-text {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--slate-light);
+      font-weight: 300;
+      margin-bottom: 1.4rem;
+    }
+
+    .story-pull {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      line-height: 1.35;
+      color: var(--amber);
+      text-align: center;
+      margin: 2rem 0 2.25rem;
+      font-weight: 400;
+    }
+
+    .story-close {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--slate-light);
+      font-weight: 300;
+    }
+
+    /* ============================================
+       OFFER CARDS
+       ============================================ */
+    .offer {
+      text-align: center;
+    }
+
+    .offer-light {
+      background: var(--parchment-dark);
+    }
+
+    .offer-dark {
+      background: var(--earth-dark);
+    }
+
+    .offer-dark .section-eyebrow {
+      color: var(--amber-soft);
+    }
+
+    .offer-dark .section-headline {
+      color: rgba(255,255,255,0.94);
+    }
+
+    .offer-dark .section-body {
+      color: rgba(255,255,255,0.65);
+    }
+
+    .cta-btn {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: white;
+      background: var(--amber);
+      padding: 0.95rem 2.25rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.25s ease, transform 0.15s ease;
+      margin-top: 0.5rem;
+    }
+
+    .cta-btn:hover {
+      background: var(--amber-hover);
+      transform: translateY(-1px);
+    }
+
+    .cta-btn:active {
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .site-footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem 3rem;
+      background: var(--parchment);
+    }
+
+    .footer-breathing {
+      margin: 0 auto 1.5rem;
+      width: 6px;
+    }
+
+    .footer-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--amber);
+      border-radius: 50%;
+      animation: breathe 5s ease-in-out infinite;
+    }
+
+    .footer-logo {
+      display: inline-block;
+      opacity: 0.65;
+      transition: opacity 0.3s ease;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo:hover {
+      opacity: 1;
+    }
+
+    .footer-logo img {
+      width: 38px;
+      height: auto;
+    }
+
+    .copyright {
+      font-size: 0.6rem;
+      color: var(--warm-gray);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    /* ============================================
+       ANIMATIONS
+       ============================================ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: 0.45; }
+      50% { transform: scale(1.8); opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       DESKTOP
+       ============================================ */
+    @media (min-width: 600px) {
+      .hero-headline { font-size: 3.2rem; }
+      .hero-sub { font-size: 1.05rem; max-width: 420px; }
+      section { padding: 5.5rem 2rem; }
+      .section-headline { font-size: 2.4rem; }
+      .headshot { width: 180px; height: 180px; }
+      .about-intro { font-size: 1.7rem; }
+      .story-pull { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/inanitah.jpg" alt="Sunset over a volcanic landscape" />
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-headline">What You're Looking for<br>is Already Inside of You.</h1>
+    </div>
+    <div class="scroll-hint">
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </div>
+  </section>
+
+  <!-- ABOUT / STORY -->
+  <section class="about">
+    <div class="section-inner">
+      <div class="headshot-wrapper reveal">
+        <img src="images/jordancole1.jpg" alt="Jordan Cole" class="headshot" />
+      </div>
+
+      <p class="about-intro reveal">Hey — I'm Jordan,<br>and this is how I got here.</p>
+
+      <div class="reveal">
+        <p class="story-text">
+          In 2019 I had a really rough year. Two of the people I was closest to died and I became lost. I was in a lot of pain and no longer understood what the point of life was.
+        </p>
+        <p class="story-text">
+          So I left. The family, the friends, the business, the city, the entire life I had built. I ran, looking for something that could make it all make sense.
+        </p>
+        <p class="story-text">
+          That choice and the path I took was anything but straightforward. I bounced around confused and spent a lot of time distracting myself from the pain I felt. But I was still searching for something that felt true.
+        </p>
+        <p class="story-text">
+          And after years of what felt like aimless wandering, I came across an idea that I had never truly considered:
+        </p>
+      </div>
+
+      <p class="story-pull reveal">I am not my thoughts.</p>
+
+      <div class="reveal">
+        <p class="story-text">
+          And that any suffering I was experiencing was because I was lost in my mind, thinking about the past or wondering about the future.
+        </p>
+        <p class="story-text">
+          That idea felt so true to me that I started doing some research and decided to test the theory out by doing a solo retreat. I was traveling through Europe at the time, and got an Airbnb on the coast in The Netherlands.
+        </p>
+        <p class="story-text">
+          The rules for the retreat were simple — for 3 days I couldn't "do" anything. No phone, no books, no journal, nothing. Just me sitting with myself, observing what was happening.
+        </p>
+      </div>
+
+      <p class="story-pull reveal">The first day was hell.</p>
+
+      <div class="reveal">
+        <p class="story-text">
+          I had been meditating for years, but this was different. No mantra, nothing to focus on, just me sitting with my thoughts for hours. I got sick the first night. Full body aches, cold chills while burning up, barely able to sleep.
+        </p>
+        <p class="story-text">
+          But I woke up the second day feeling better. And after that my mind started to slow down. I was still spending the entire time thinking, but I was noticing patterns — lines of thought I would jump back into over and over.
+        </p>
+        <p class="story-text">
+          By the third day my mind had settled down enough that I was having periods of no thought whatsoever. I was starting to feel what it was like underneath all the pain and fear I'd been cycling through for so long.
+        </p>
+        <p class="story-text">
+          The word that comes closest to describing what it felt like is love. Not love for myself or anything else.
+        </p>
+      </div>
+
+      <p class="story-pull reveal">Just love.</p>
+
+      <div class="reveal">
+        <p class="story-text">
+          And a gratitude for simply being alive. It was an incredible relief. Life suddenly felt so simple.
+        </p>
+        <p class="story-text">
+          What I had been searching for this entire time was already a part of me — something I could feel when my mind was quiet enough. That gratitude that came through me at the end of those 3 days was the strongest emotion I'd ever felt. It changed my life forever.
+        </p>
+        <p class="story-text">
+          I've spent the last 3 years experimenting with how to bring that love and gratitude into my everyday life. That process has led me here, to sharing what I've learned with others.
+        </p>
+        <p class="story-close">
+          And reminding anyone who's open enough to hear it...
+        </p>
+      </div>
+
+      <p class="story-pull reveal">what you're looking for is already inside of you.</p>
+    </div>
+  </section>
+
+  <!-- ACTIVE AWARENESS -->
+  <section class="offer offer-light grain">
+    <div class="section-inner reveal">
+      <p class="section-eyebrow">The Practice</p>
+      <h2 class="section-headline">Active Awareness</h2>
+      <p class="section-body">
+        Active Awareness is the practice I built out of everything I've learned. It's a simple form of meditation combined with 3 reflection questions — designed to help you take informed action based on what's actually going on inside you. You don't need any experience to try it. Sign up at the link below and I'll send you a free PDF that walks you through the practice step-by-step.
+      </p>
+      <a href="activeawareness.html" target="_blank" rel="noopener" class="cta-btn">Get the PDF</a>
+    </div>
+  </section>
+
+  <!-- 7 DAY RECONNECT -->
+  <section class="offer offer-dark">
+    <div class="section-inner reveal">
+      <p class="section-eyebrow">1-on-1 Work</p>
+      <h2 class="section-headline">The 7 Day Reconnect</h2>
+      <p class="section-body">
+        Meditation is simple. Making it a consistent habit is hard. That's why I created the 7 Day Reconnect — one week of me as your guide. You sit, we talk, and I help you address questions along the way. I'll never promise specific results, but if you show up for 7 days, life will feel different.
+      </p>
+      <a href="7dayreconnect.html" target="_blank" rel="noopener" class="cta-btn">See if it's a fit</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-breathing">
+      <div class="footer-dot"></div>
+    </div>
+    <a href="https://jordancole.co" class="footer-logo" aria-label="Jordan Cole">
+      <img src="images/logo.svg" alt="JC" />
+    </a>
+    <p class="copyright">Jordan Cole 2026. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    var reveals = document.querySelectorAll('.reveal');
+    function checkReveal() {
+      for (var i = 0; i < reveals.length; i++) {
+        var top = reveals[i].getBoundingClientRect().top;
+        if (top < window.innerHeight - 50) {
+          reveals[i].classList.add('visible');
+        }
+      }
+    }
+    window.addEventListener('scroll', checkReveal);
+    window.addEventListener('load', checkReveal);
+  </script>
+</body>
+</html>
