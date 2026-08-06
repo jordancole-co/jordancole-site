@@ -326,7 +326,7 @@
     </div>
 
     <p class="body-text">
-      Sign up below to start The 7 Day Reconnect for free today. Once you confirm your subscription, you'll get an email with the 1st video in the series that will include a simple guided meditation to get you started.
+      Sign up below to start The 7 Day Reconnect for free today.
     </p>
 
     <div class="divider"></div>
@@ -346,7 +346,7 @@
         placeholder="Email address"
         aria-label="Email address"
       />
-      <button type="button" class="form-btn" id="submitBtn">START THE RECONNECT</button>
+      <button type="button" class="form-btn" id="submitBtn">RECONNECT</button>
       <p class="form-note">No Spam. Unsubscribe anytime.</p>
       <p class="form-error" id="formError" style="display: none;">Please enter a valid email address.</p>
     </div>
@@ -421,7 +421,7 @@
           // API returned an error
           formError.textContent = data.message || 'Something went wrong. Please try again.';
           formError.style.display = 'block';
-          submitBtn.textContent = 'START THE RECONNECT';
+          submitBtn.textContent = 'RECONNECT';
           submitBtn.style.opacity = '1';
           submitBtn.style.pointerEvents = 'auto';
         }
