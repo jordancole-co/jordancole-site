@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enjoy the Ride | Jordancole.co</title>
+  <meta name="description" content="A 4-week spirit quest to reconnect to yourself and create the life you're meant to live.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --parchment: #fdfbf7;
+      --parchment-dark: #f3ede3;
+      --slate: #2c2c2c;
+      --slate-light: #5a5a5a;
+      --amber: #c48a3a;
+      --amber-hover: #a8732e;
+      --amber-soft: #d9b87a;
+      --warm-gray: #a39e95;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--parchment);
+      color: var(--slate);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain texture */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 540px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+      animation: fadeUp 0.8s ease-out 0.1s both;
+    }
+
+    .headline {
+      font-family: 'Instrument Serif', serif;
+      font-size: 3.5rem;
+      line-height: 1.1;
+      font-weight: 400;
+      color: var(--slate);
+      margin-bottom: 0.75rem;
+      animation: fadeUp 0.8s ease-out 0.2s both;
+    }
+
+    .subhead {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--amber);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s ease-out 0.25s both;
+    }
+
+    .dot-wrapper {
+      margin: 0 auto 1.75rem;
+      width: 8px;
+      animation: fadeUp 0.8s ease-out 0.28s both;
+    }
+
+    .breathing-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--amber);
+      border-radius: 50%;
+      animation: breathe 5s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.8); opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      border-radius: 8px;
+      background-color: var(--parchment-dark);
+      animation: fadeUp 0.8s ease-out 0.3s both;
+    }
+    
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    }
+
+    /* Typography formatting for long form copy */
+    .content-area {
+      text-align: left;
+      animation: fadeUp 0.8s ease-out 0.35s both;
+    }
+
+    .body-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--slate);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .body-text strong {
+      font-weight: 500;
+      color: var(--slate);
+    }
+
+    .steps-box {
+      background: var(--parchment-dark);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--slate);
+      border-left: 3px solid var(--amber);
+    }
+
+    .equation-box {
+      text-align: center;
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.6rem;
+      line-height: 1.4;
+      color: var(--slate);
+      margin: 3rem 0;
+      padding: 2rem 0;
+      border-top: 1px solid var(--amber-soft);
+      border-bottom: 1px solid var(--amber-soft);
+    }
+
+    .equation-box span {
+      display: block;
+      margin-top: 1rem;
+      color: var(--amber);
+      font-style: italic;
+    }
+
+    .list-section {
+      margin: 2.5rem 0;
+    }
+
+    .list-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      color: var(--slate);
+      margin-bottom: 1rem;
+    }
+
+    .custom-list {
+      list-style: none;
+    }
+
+    .custom-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--slate-light);
+      font-weight: 300;
+    }
+
+    .custom-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .timeline-list li {
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--amber-soft);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--slate-light);
+      font-weight: 300;
+    }
+
+    .timeline-list li::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--amber);
+    }
+
+    .timeline-list strong {
+      display: block;
+      color: var(--slate);
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      font-size: 1.05rem;
+    }
+
+    .price-box {
+      text-align: center;
+      margin: 3rem 0;
+      padding: 2rem;
+      background: var(--parchment-dark);
+      border-radius: 12px;
+    }
+
+    .price-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--slate);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 1.15rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: white;
+      background: var(--amber);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.15s ease;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: var(--amber-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer-mark {
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-mark a {
+      display: inline-block;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-mark a:hover { opacity: 1; }
+    .footer-mark img { width: 44px; height: auto; }
+
+    .copyright {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--warm-gray);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 500px) {
+      body { padding: 2.5rem 1.25rem; }
+      .headline { font-size: 2.8rem; }
+      .subhead { font-size: 1.15rem; }
+      .equation-box { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="eyebrow">A 4-Week Spirit Quest</div>
+    <h1 class="headline">Enjoy the Ride</h1>
+    <p class="subhead">Reconnect to yourself and create the life you're meant to live.</p>
+
+    <div class="dot-wrapper">
+      <div class="breathing-dot"></div>
+    </div>
+
+    <!-- Video Placeholder -->
+    <div class="video-wrapper">
+      <iframe src="https://player.vimeo.com/video/1216480193?color=c48a3a&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="content-area">
+      <p class="body-text">
+        There are a lot of flowery words and ethereal language I could use to help you feel that you are here on Earth to create the life you’ve always wanted to live.
+      </p>
+      
+      <p class="body-text">
+        But underneath those words, there is a very simple, grounded, two-step approach that will actually shift how you relate to your life and allow you to change how you live it.
+      </p>
+
+      <div class="steps-box">
+        <strong>Step 1:</strong> Consistent, embodied meditation<br><br>
+        <strong>Step 2:</strong> Consistent, intentional creation
+      </div>
+
+      <p class="body-text">
+        If you commit to four weeks of reconnecting to yourself through meditation, and then creating based on what you reconnect to, your life will shift. Guaranteed.
+      </p>
+
+      <p class="body-text">
+        It doesn’t matter what your specific journey entails—whether you’re creating a business, a family, a new beginning, or just wanting to reconnect to a fun, creative spark in your own life through cooking, singing, dancing, freestyle rapping, or whatever else calls to you.
+      </p>
+
+      <div class="equation-box">
+        Reconnecting to what’s happening within us<br>
+        +<br>
+        Creating something based on what we find<br>
+        <span>= Expanding our ability to enjoy the ride.</span>
+      </div>
+
+      <p class="body-text">
+        As you do that consistently, the limitations you’re currently putting on what you can or cannot create in your life will drastically change, and the process becomes a self-propelled joy-creation machine. Which is what I believe the experience of life is for.
+      </p>
+
+      <div class="list-section">
+        <h2 class="list-title">What's Included:</h2>
+        <ul class="custom-list">
+          <li><strong>5 weekly Zoom calls</strong> where we intentionally reconnect to our body, each week grounding ourselves deeper through the heart, solar plexus, sacral, and root chakras.</li>
+          <li><strong>4 midweek Zoom group meditations.</strong></li>
+          <li><strong>A new guided meditation each week</strong> as we focus on a deeper connection within ourselves to use on your own.</li>
+          <li><strong>Access to an Enjoy the Ride WhatsApp group</strong> where we will all be able to share our experience with our meditation and creation practices, holding each other accountable and supporting each other’s expansion.</li>
+        </ul>
+      </div>
+
+      <div class="list-section">
+        <h2 class="list-title">The Timeline:</h2>
+        <ul class="custom-list timeline-list">
+          <li><strong>Week 1: The Heart</strong><br>Sunday 8/30 at 1pm (EDT): Intro call & heart meditation<br>Wednesday 9/2 at 8am (EDT): Midweek group meditation</li>
+          <li><strong>Week 2: The Solar Plexus</strong><br>Sunday 9/6 at 1pm (EDT): Live call, connecting heart to solar plexus<br>Wednesday 9/9 at 10am (EDT): Midweek group meditation</li>
+          <li><strong>Week 3: The Sacral</strong><br>Sunday 9/13 at 1pm (EDT): Live call, connecting down to the sacral<br>Wednesday 9/16 at 12pm (EDT): Midweek group meditation</li>
+          <li><strong>Week 4: The Root</strong><br>Sunday 9/20 at 1pm (EDT): Live call, grounding in the root<br>Thursday 9/24 at 12pm (EDT): Midweek group meditation</li>
+          <li><strong>The Completion</strong><br>Sunday 9/27 at 1pm (EDT): Final live call to bring the quest to an end</li>
+        </ul>
+      </div>
+
+      <p class="body-text">
+        This isn’t some secret formula that, once figured out, will change everything for you. This is an invitation to choose to put yourself in a supportive group setting where you’re encouraged to show up by taking consistent steps back to yourself and what you’re truly capable of.
+      </p>
+
+      <p class="body-text">
+        It’s simple. If you show up, your internal energy will move, and thus your external life will reflect that and start to shift. If you don’t show up, your energy stays in the patterns it's comfortable with, and your external life reflects that and stays the same.
+      </p>
+
+      <p class="body-text">
+        I have no idea what this process will look like for you. I don’t know what it will look like for me, either. It’s likely that discomfort and fear will show up along the way, as this tends to happen when we stretch ourselves outside of our comfort zones. I’m here to support you in this process, but I cannot change what it is that you need to confront in order to expand.
+      </p>
+
+      <p class="body-text">
+        What I can tell you is that this work comes directly from my heart to yours. And I know I am here to help other people make the shift from fear as a motivator, to love and connection as a motivator.
+      </p>
+
+      <div class="price-box">
+        <p class="price-text">
+          This is the first iteration of Enjoy the Ride, and I want to keep this first experience very intimate. <strong>There are only 8 spots available.</strong> This will be the most intimate and affordable this journey will ever be.
+        </p>
+        <p class="price-text">
+          <strong>The price for the spirit quest is $438.</strong><br>
+          <span style="font-size: 0.95rem; color: var(--slate-light);">You can also add an extra 1-on-1 session with me at checkout for $138.</span>
+        </p>
+        <p class="body-text" style="text-align: center; margin-bottom: 1.5rem;">
+          If you’re on board, click the link below and let’s fucking go!
+        </p>
+        <!-- Replace the '#' with your actual Stripe Payment Link URL -->
+        <a href="#" class="btn">Join The Quest</a>
+      </div>
+
+    </div>
+
+    <div class="footer-mark">
+      <a href="https://jordancole.co" aria-label="Visit jordancole.co">
+        <img src="images/logo.svg" alt="JC" />
+      </a>
+    </div>
+
+    <p class="copyright">Jordan Cole 2026. All Rights Reserved.</p>
+  </div>
+</body>
+</html>
