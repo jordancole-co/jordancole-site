@@ -17,6 +17,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     :root {
       --parchment: #fdfbf7;
       --parchment-dark: #f3ede3;
@@ -122,7 +126,7 @@
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
       border-radius: 8px;
       background-color: var(--parchment-dark);
       animation: fadeUp 0.8s ease-out 0.3s both;
@@ -174,10 +178,17 @@
       border-top: 1px solid var(--amber-soft);
       border-bottom: 1px solid var(--amber-soft);
     }
+    
+    .equation-operator {
+      display: block;
+      margin: 0.75rem 0;
+      color: var(--slate-light);
+      font-size: 1.25rem;
+      font-family: 'DM Sans', sans-serif;
+    }
 
     .equation-box span {
       display: block;
-      margin-top: 1rem;
       color: var(--amber);
       font-style: italic;
     }
@@ -216,7 +227,7 @@
       font-size: 1.2rem;
     }
 
-    /* Form Styles Re-added */
+    /* Form Styles */
     .divider {
       width: 40px;
       height: 1px;
@@ -259,7 +270,8 @@
       background: white;
     }
 
-    .form-btn {
+    .btn, .form-btn {
+      display: block;
       width: 100%;
       padding: 1.15rem;
       font-family: 'DM Sans', sans-serif;
@@ -267,21 +279,29 @@
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
       color: white;
       background: var(--amber);
       border: none;
       border-radius: 12px;
       cursor: pointer;
       transition: background 0.25s ease, transform 0.15s ease;
-      margin-top: 0.25rem;
+    }
+    
+    .jump-btn {
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.8s ease-out 0.35s both;
     }
 
-    .form-btn:hover {
+    .btn:hover, .form-btn:hover {
       background: var(--amber-hover);
       transform: translateY(-2px);
     }
 
-    .form-btn:active { transform: translateY(0); }
+    .btn:active, .form-btn:active { transform: translateY(0); }
+    
+    .form-btn { margin-top: 0.25rem; }
 
     .form-note {
       font-size: 0.72rem;
@@ -373,6 +393,9 @@
       <iframe src="https://player.vimeo.com/video/1216480193?color=c48a3a&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
     </div>
 
+    <!-- Jump Link Button -->
+    <a href="#waitlist-section" class="btn jump-btn">JOIN THE WAITLIST</a>
+
     <div class="content-area">
       <p class="body-text">
         There are a lot of flowery words and ethereal language I could use to help you feel that you are here on Earth to create the life you’ve always wanted to live.
@@ -392,27 +415,28 @@
       </p>
 
       <p class="body-text">
-        It doesn’t matter what your specific journey entails—whether you’re creating a business, a family, a new beginning, or just wanting to reconnect to a fun, creative spark in your own life through cooking, singing, dancing, freestyle rapping, or whatever else calls to you.
+        It doesn’t matter what your specific journey entails—whether you’re creating art, a business, a family, a new beginning, all of the above… life is a creative act, and treating it as one opens the doors to joy, love, peace, all the words that need to be felt, not heard or read.
       </p>
 
       <div class="equation-box">
-        Reconnecting to what’s happening within us<br>
-        +<br>
-        Creating something based on what we find<br>
-        <span>= Expanding our ability to enjoy the ride.</span>
+        Reconnecting to what’s happening within us
+        <span class="equation-operator">+</span>
+        Creating something based on what we find
+        <span class="equation-operator">=</span>
+        <span>Expanding our ability to enjoy the ride.</span>
       </div>
 
       <p class="body-text">
-        As you do that consistently, the limitations you’re currently putting on what you can or cannot create in your life will drastically change, and the process becomes a self-propelled joy-creation machine. Which is what I believe the experience of life is for.
+        Do that consistently and the limitations you’re currently putting on what you can create with your life will drastically diminish.
       </p>
 
       <div class="list-section">
         <h2 class="list-title">What's Included:</h2>
         <ul class="custom-list">
           <li><strong>5 weekly Zoom calls</strong> where we intentionally reconnect to our body, each week grounding ourselves deeper through the heart, solar plexus, sacral, and root chakras.</li>
-          <li><strong>4 midweek Zoom group meditations.</strong></li>
-          <li><strong>A new guided meditation each week</strong> as we focus on a deeper connection within ourselves to use on your own.</li>
-          <li><strong>Access to an Enjoy the Ride WhatsApp group</strong> where we will all be able to share our experience with our meditation and creation practices, holding each other accountable and supporting each other’s expansion.</li>
+          <li><strong>4 midweek Zoom group meditations</strong> with space to discuss our experience.</li>
+          <li><strong>A new guided meditation audio recording each week</strong> to use in our daily practice.</li>
+          <li><strong>Access to the Enjoy the Ride WhatsApp group</strong> where we will all be able to share our experience with our meditation and creation practices, holding each other accountable and supporting each other’s expansion.</li>
         </ul>
       </div>
 
@@ -429,16 +453,16 @@
       </p>
 
       <p class="body-text">
-        What I can tell you is that this work comes directly from my heart to yours. And I know I am here to help other people make the shift from fear as a motivator, to love and connection as a motivator.
+        What I can tell you is that this work comes directly from my heart to yours. And I know I am here to help remind people why we are here… to Enjoy the Ride.
       </p>
 
       <div class="divider"></div>
 
       <!-- Waitlist Signup Form -->
-      <div class="signup-wrapper">
+      <div class="signup-wrapper" id="waitlist-section">
         <h2 class="signup-title">Get On The List</h2>
         <p class="body-text" style="text-align: center; margin-bottom: 1.5rem;">
-          This first iteration is limited to 8 spots. Drop your email below to be notified the moment doors open.
+          This first iteration of ETR will be limited to 8 spots. It’s going to be uniquely intimate. By joining this waitlist you will have 24 hours to join the quest before I open it up to the public.
         </p>
 
         <div class="signup-form" id="signupForm">
