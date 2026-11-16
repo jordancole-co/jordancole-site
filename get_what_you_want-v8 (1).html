@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get What You Want | Jordancole.co</title>
+  <meta name="description" content="Uncovering and Updating the Beliefs that Control Us">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --parchment: #fdfbf7;
+      --parchment-dark: #f3ede3;
+      --slate: #2c2c2c;
+      --slate-light: #5a5a5a;
+      --amber: #c48a3a;
+      --amber-hover: #a8732e;
+      --amber-soft: #d9b87a;
+      --warm-gray: #a39e95;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--parchment);
+      color: var(--slate);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 540px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+      animation: fadeUp 0.8s ease-out 0.1s both;
+    }
+
+    .headline {
+      font-family: 'Instrument Serif', serif;
+      font-size: 3.5rem;
+      line-height: 1.1;
+      font-weight: 400;
+      color: var(--slate);
+      margin-bottom: 0.75rem;
+      animation: fadeUp 0.8s ease-out 0.2s both;
+    }
+
+    .subhead {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--amber);
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+      animation: fadeUp 0.8s ease-out 0.25s both;
+    }
+
+    .date-range {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--slate-light);
+      margin-bottom: 1.75rem;
+      animation: fadeUp 0.8s ease-out 0.26s both;
+    }
+
+    .dot-wrapper {
+      margin: 0 auto 1.75rem;
+      width: 8px;
+      animation: fadeUp 0.8s ease-out 0.28s both;
+    }
+
+    .breathing-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--amber);
+      border-radius: 50%;
+      animation: breathe 5s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.8); opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      background-color: var(--parchment-dark);
+      animation: fadeUp 0.8s ease-out 0.3s both;
+    }
+    
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    }
+
+    .content-area {
+      text-align: left;
+      animation: fadeUp 0.8s ease-out 0.35s both;
+    }
+
+    .body-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--slate);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .body-text strong {
+      font-weight: 700;
+      color: var(--slate);
+    }
+
+    .steps-box {
+      background: var(--parchment-dark);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--slate);
+      border-left: 3px solid var(--amber);
+    }
+
+    .list-section {
+      margin: 2.5rem 0;
+    }
+
+    .list-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      color: var(--slate);
+      margin-bottom: 1rem;
+    }
+
+    .custom-list {
+      list-style: none;
+    }
+
+    .custom-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--slate-light);
+      font-weight: 300;
+    }
+
+    .custom-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--amber-soft);
+      margin: 3rem auto 2rem;
+      opacity: 0.5;
+    }
+
+    .pricing-wrapper {
+      margin: 3rem 0 1rem;
+    }
+
+    .pricing-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.2rem;
+      color: var(--slate);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .pricing-card {
+      background: var(--parchment-dark);
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      border-left: 3px solid var(--amber);
+      text-align: left;
+    }
+    
+    .pricing-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(217, 184, 122, 0.3);
+    }
+    
+    .pricing-row:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    
+    .pricing-details strong {
+      display: block;
+      color: var(--slate);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+    
+    .pricing-details span {
+      font-size: 0.9rem;
+      color: var(--slate-light);
+      line-height: 1.4;
+      display: block;
+    }
+    
+    .pricing-amount {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--amber);
+      white-space: nowrap;
+      margin-left: 1rem;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 1.15rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      color: white;
+      background: var(--amber);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.15s ease;
+    }
+    
+    .jump-btn {
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.8s ease-out 0.35s both;
+    }
+
+    .btn:hover {
+      background: var(--amber-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn:active { transform: translateY(0); }
+
+    .footer-mark {
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-mark a {
+      display: inline-block;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-mark a:hover { opacity: 1; }
+    .footer-mark img { width: 44px; height: auto; }
+
+    .copyright {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--warm-gray);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 500px) {
+      body { padding: 2.5rem 1.25rem; }
+      .headline { font-size: 2.8rem; }
+      .subhead { font-size: 1.15rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="eyebrow">A 90-Minute Workshop</div>
+    <h1 class="headline">Get What You Want</h1>
+    <p class="subhead">Uncovering and Updating the Beliefs That Control Us</p>
+    <p class="date-range">Sunday 11/22 at 11:30am EST</p>
+
+    <div class="dot-wrapper">
+      <div class="breathing-dot"></div>
+    </div>
+
+    <!-- Video Placeholder -->
+    <div class="video-wrapper">
+      <iframe src="https://player.vimeo.com/video/1029285093?color=c48a3a&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Jump Link Button 1 -->
+    <a href="#pricing-section" class="btn jump-btn">REGISTER FOR SUNDAY</a>
+
+    <div class="content-area">
+      <h2 class="list-title" style="margin-bottom: 0.5rem;">The real reason you don't have what you want.</h2>
+      
+      <p class="body-text">
+        If there is something that you’ve been wanting for yourself, perhaps for a long time, but you’ve never been able to get it, do it, or achieve it... It’s NOT because there is something uniquely wrong with you.
+      </p>
+
+      <p class="body-text">
+        There are over <strong>25 years of scientific research</strong> showing it's actually because your body and mind have developed a very sophisticated system designed to keep you safe from anxiety and stress.
+      </p>
+
+      <p class="body-text">
+        This system serves a vital purpose. But if you’ve never updated it, it’s still running on <strong>outdated beliefs about what is and isn't safe for you—many of which you developed when you were a child.</strong>
+      </p>
+
+      <p class="body-text">
+        These outdated beliefs cause you to act in ways that no longer serve you, locking you into behavioral patterns that make it nearly impossible to get what you want out of life.
+      </p>
+      
+      <p class="body-text">
+        <strong>The good news is that the research proves that, even as adults, we can update this system and change our behavior.</strong>
+      </p>
+
+      <p class="body-text" style="margin-top: 2rem;"><strong>Here’s how:</strong></p>
+
+      <div class="steps-box">
+        <strong>1. Choose What You Want:</strong> We start by choosing an important goal—something that, if achieved or progressed upon, would greatly improve our lives and the lives of the people around us.<br><br>
+        <strong>2. Uncover the Underlying Beliefs:</strong> Once we commit to our goal, we build a “Behavioral X-Ray” by asking ourselves a series of specific questions that help us uncover the beliefs keeping us from achieving it.<br><br>
+        <strong>3. Real-World Experiments:</strong> With more clarity on what’s keeping us stuck, we start running experiments and collecting data on what actually happens when we act in new ways that directly conflict with these outdated beliefs.<br><br>
+        <strong>4. Consistent Integration:</strong> As we run these experiments we keep our overall goal and updated beliefs top of mind through short, daily Goal-Oriented Meditations.
+      </div>
+
+      <p class="body-text">
+        <strong>This process, informed by over 25 years of developmental psychology research, is exactly what I will walk you through in this workshop.</strong>
+      </p>
+
+      <!-- Jump Link Button 2 -->
+      <a href="#pricing-section" class="btn jump-btn" style="margin-top: 2rem;">HELL YA, LET'S GO</a>
+
+      <div class="list-section">
+        <h2 class="list-title">Workshop Breakdown:</h2>
+        <ul class="custom-list">
+          <li>Before the workshop begins, you will receive an email with specific instructions on how to ensure the goal you have in mind is the right place to start.</li>
+          <li>Once the workshop begins, we will jump straight into building your Behavioral X-Ray and uncovering those outdated beliefs.</li>
+          <li>After completing the X-Ray, we will choose one Big Assumption that you hold and design a real-world experiment around it—something you can easily test in your everyday life that week.</li>
+          <li>After creating our experiment, I will guide you through a 10-minute Goal-Oriented Meditation: a very simple technique used to keep your goal and the new beliefs you’re working with top of mind.</li>
+          <li>We’ll have time for questions at the end of the workshop.</li>
+          <li>After the workshop, you will receive the Get What You Want Blueprint, alongside a guided audio version of the Goal-Oriented Meditation, so you can repeat the process on your own as often as you’d like.</li>
+        </ul>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="list-section" style="margin-top: 1rem;">
+        <h2 class="list-title" style="margin-bottom: 0.5rem;">The Bottom Line:</h2>
+        
+        <p class="body-text">
+          This work will change your life. It’s not a shortcut, and it’s not easy, though it is incredibly simple. We’re making our unconscious beliefs conscious and using that newfound awareness to reteach ourselves what we’re actually capable of.
+        </p>
+        
+        <p class="body-text">
+          <strong>We didn’t choose the beliefs and behaviors that run our lives, but in 2026 we all have access to the information that allows us to create new ones.</strong>
+        </p>
+        
+        <p class="body-text">
+          If you’re ready to start getting what you want, I’ll see you in the next workshop.
+        </p>
+      </div>
+
+      <div class="divider" style="margin-top: 1rem;"></div>
+
+      <!-- Pricing & Checkout Section -->
+      <div class="pricing-wrapper" id="pricing-section">
+        <h2 class="pricing-title">Sunday 11/22 at 11:30am EST</h2>
+        
+        <div class="pricing-card">
+          <div class="pricing-row">
+            <div class="pricing-details">
+              <strong>Get What You Want Workshop</strong>
+              <span>90-minute live workshop, Get What You Want Blueprint, Goal-Oriented Meditation guided audio file.</span>
+            </div>
+            <div class="pricing-amount">$38</div>
+          </div>
+        </div>
+        
+        <!-- Final Checkout Button to Stripe -->
+        <a href="https://buy.stripe.com/3cI7sLeqr7En4mFfLAfAc01" class="btn" target="_blank" rel="noopener noreferrer">GET WHAT YOU WANT</a>
+      </div>
+
+    </div>
+
+    <div class="footer-mark">
+      <a href="https://jordancole.co" aria-label="Visit jordancole.co">
+        <img src="images/logo.svg" alt="JC" />
+      </a>
+    </div>
+
+    <p class="copyright">Jordan Cole 2026. All Rights Reserved.</p>
+  </div>
+</body>
+</html>
