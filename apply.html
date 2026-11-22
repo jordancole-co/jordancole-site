@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply for 1:1 Work | Jordancole.co</title>
+  <meta name="description" content="Apply to work 1:1 with Jordan Cole on changing the patterns keeping you from what you want.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --parchment: #fdfbf7;
+      --parchment-dark: #f3ede3;
+      --slate: #2c2c2c;
+      --slate-light: #5a5a5a;
+      --amber: #c48a3a;
+      --amber-hover: #a8732e;
+      --amber-soft: #d9b87a;
+      --warm-gray: #a39e95;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--parchment);
+      color: var(--slate);
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 4rem 1.5rem 5rem;
+      position: relative;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain texture */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 560px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+      animation: fadeUp 0.8s ease-out 0.1s both;
+    }
+
+    .headline {
+      font-family: 'Instrument Serif', serif;
+      font-size: 3rem;
+      line-height: 1.12;
+      font-weight: 400;
+      color: var(--slate);
+      margin-bottom: 0.75rem;
+      animation: fadeUp 0.8s ease-out 0.2s both;
+    }
+
+    .subhead {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--amber);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s ease-out 0.25s both;
+    }
+
+    /* Breathing dot */
+    .dot-wrapper {
+      margin: 0 auto 1.75rem;
+      width: 8px;
+      animation: fadeUp 0.8s ease-out 0.28s both;
+    }
+
+    .breathing-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--amber);
+      border-radius: 50%;
+      animation: breathe 5s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: scale(1.8);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .body-text {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--slate-light);
+      font-weight: 300;
+      margin-bottom: 1.75rem;
+      animation: fadeUp 0.8s ease-out 0.35s both;
+    }
+
+    /* Divider */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--amber-soft);
+      margin: 0 auto 2.25rem;
+      opacity: 0.5;
+      animation: fadeUp 0.8s ease-out 0.4s both;
+    }
+
+    /* Application Form */
+    .apply-form {
+      text-align: left;
+      animation: fadeUp 0.8s ease-out 0.48s both;
+    }
+
+    .form-group {
+      margin-bottom: 1.35rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--slate);
+      line-height: 1.45;
+      margin-bottom: 0.45rem;
+    }
+
+    .form-label .optional {
+      font-weight: 300;
+      color: var(--warm-gray);
+      font-size: 0.78rem;
+      margin-left: 0.25rem;
+    }
+
+    .form-field {
+      width: 100%;
+      padding: 0.92rem 1.1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--slate);
+      background: var(--parchment-dark);
+      border: 1.5px solid transparent;
+      border-radius: 12px;
+      outline: none;
+      transition: border-color 0.25s ease, background 0.25s ease;
+      text-align: left;
+    }
+
+    textarea.form-field {
+      min-height: 110px;
+      resize: vertical;
+      line-height: 1.65;
+    }
+
+    .form-field::placeholder {
+      color: var(--warm-gray);
+    }
+
+    .form-field:focus {
+      border-color: var(--amber-soft);
+      background: white;
+    }
+
+    .form-field.invalid {
+      border-color: #c44e4e;
+    }
+
+    /* Radio choice cards */
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.9rem 1.05rem;
+      background: var(--parchment-dark);
+      border: 1.5px solid transparent;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: border-color 0.25s ease, background 0.25s ease;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.45;
+    }
+
+    .radio-option:hover {
+      border-color: var(--amber-soft);
+    }
+
+    .radio-option input[type="radio"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+      border: 1.5px solid var(--warm-gray);
+      border-radius: 50%;
+      margin-top: 2px;
+      position: relative;
+      transition: border-color 0.2s ease;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .radio-option input[type="radio"]:checked {
+      border-color: var(--amber);
+    }
+
+    .radio-option input[type="radio"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--amber);
+    }
+
+    .radio-option:has(input[type="radio"]:checked) {
+      border-color: var(--amber-soft);
+      background: white;
+    }
+
+    .radio-group.invalid .radio-option {
+      border-color: #c44e4e;
+    }
+
+    /* Honeypot field (hidden from humans, catches bots) */
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .form-btn {
+      width: 100%;
+      padding: 1.05rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: white;
+      background: var(--amber);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.15s ease;
+      margin-top: 0.5rem;
+    }
+
+    .form-btn:hover {
+      background: var(--amber-hover);
+      transform: translateY(-1px);
+    }
+
+    .form-btn:active {
+      transform: translateY(0);
+    }
+
+    .form-note {
+      font-size: 0.74rem;
+      color: var(--warm-gray);
+      font-weight: 300;
+      line-height: 1.55;
+      margin-top: 0.85rem;
+      text-align: center;
+    }
+
+    .form-error {
+      font-size: 0.78rem;
+      color: #c44e4e;
+      font-weight: 400;
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+
+    /* Success message */
+    .success-message {
+      text-align: center;
+      padding: 1.5rem 0.5rem;
+      animation: fadeUp 0.5s ease-out both;
+    }
+
+    .success-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--amber);
+      color: white;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.15rem;
+    }
+
+    .success-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--slate);
+      margin-bottom: 0.65rem;
+    }
+
+    .success-text {
+      font-size: 0.96rem;
+      line-height: 1.75;
+      color: var(--slate-light);
+      font-weight: 300;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    /* Footer */
+    .footer-mark {
+      text-align: center;
+      margin-top: 3.5rem;
+      animation: fadeUp 0.8s ease-out 0.6s both;
+    }
+
+    .footer-mark a {
+      display: inline-block;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-mark a:hover {
+      opacity: 1;
+    }
+
+    .footer-mark img {
+      width: 44px;
+      height: auto;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.65rem;
+      color: var(--warm-gray);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 540px) {
+      body {
+        padding: 2.75rem 1.25rem 4rem;
+      }
+
+      .headline {
+        font-size: 2.35rem;
+      }
+
+      .subhead {
+        font-size: 1.05rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="pageTop">
+    <p class="eyebrow">1:1 Coaching Application</p>
+    <h1 class="headline">Change the Pattern. Get What You Want.</h1>
+    <p class="subhead">Private 1:1 behavioral change work for people ready to stop negotiating with themselves.</p>
+
+    <div class="dot-wrapper">
+      <div class="breathing-dot"></div>
+    </div>
+
+    <p class="body-text">
+      Take 3 minutes to answer the questions below honestly. I read every application myself and will reply personally within 24–48 hours with next steps if it looks like a fit.
+    </p>
+
+    <div class="divider"></div>
+
+    <form class="apply-form" id="applyForm" novalidate>
+      <!-- Honeypot field for spam protection -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="websiteUrl">Website</label>
+        <input type="text" id="websiteUrl" name="website_url" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="nameField">Your name</label>
+          <input
+            type="text"
+            class="form-field"
+            id="nameField"
+            name="full_name"
+            placeholder="First & last name"
+            autocomplete="name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="emailField">Email address</label>
+          <input
+            type="email"
+            class="form-field"
+            id="emailField"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="goalField">What do you actually want—and what behavior or pattern keeps getting in the way?</label>
+        <textarea
+          class="form-field"
+          id="goalField"
+          name="goal_and_pattern"
+          placeholder="Be as specific as you can. Where do you feel stuck or repeating the same loop?"
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="triedField">What have you already tried that hasn't stuck?</label>
+        <textarea
+          class="form-field"
+          id="triedField"
+          name="what_tried"
+          placeholder="Books, habits, willpower, courses, therapy—what usually happens after a few weeks?"
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="whyNowField">Why now? What changes if nothing shifts in the next 6 months?</label>
+        <textarea
+          class="form-field"
+          id="whyNowField"
+          name="why_now"
+          placeholder="What makes this something you want to handle now instead of later?"
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <span class="form-label">1:1 coaching is a 4-session container ($500). Where are you at with the investment?</span>
+        <div class="radio-group" id="readinessGroup">
+          <label class="radio-option">
+            <input type="radio" name="readiness" value="Ready to invest and start soon" required />
+            <span>I'm ready to invest the time and money and get started soon.</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="readiness" value="Interested, want to confirm fit first" />
+            <span>I'm serious about this—just want to talk through it and make sure we're a fit.</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="readiness" value="Still figuring out timing or budget" />
+            <span>Still figuring out timing or budget, just exploring for now.</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="notesField">Anything else you want me to know? <span class="optional">(Optional)</span></label>
+        <textarea
+          class="form-field"
+          id="notesField"
+          name="extra_notes"
+          placeholder="Context, questions, or anything else on your mind."
+          style="min-height: 85px;"
+        ></textarea>
+      </div>
+
+      <button type="submit" class="form-btn" id="submitBtn">Submit Application</button>
+      <p class="form-note">Everything you share here stays strictly confidential between us.</p>
+      <p class="form-error" id="formError" style="display: none;"></p>
+    </form>
+
+    <div class="footer-mark">
+      <a href="https://jordancole.co" aria-label="Visit jordancole.co">
+        <img src="/images/logo.svg" alt="JC" />
+      </a>
+    </div>
+
+    <p class="copyright">Jordan Cole 2026. All Rights Reserved.</p>
+  </div>
+
+  <script>
+    // =========================================================================
+    // PASTE YOUR MAKE.COM CUSTOM WEBHOOK URL BELOW
+    // =========================================================================
+    var MAKE_WEBHOOK_URL = 'PASTE_YOUR_MAKE_WEBHOOK_URL_HERE';
+
+    var form = document.getElementById('applyForm');
+    var nameField = document.getElementById('nameField');
+    var emailField = document.getElementById('emailField');
+    var goalField = document.getElementById('goalField');
+    var triedField = document.getElementById('triedField');
+    var whyNowField = document.getElementById('whyNowField');
+    var notesField = document.getElementById('notesField');
+    var readinessGroup = document.getElementById('readinessGroup');
+    var websiteUrlField = document.getElementById('websiteUrl');
+    var submitBtn = document.getElementById('submitBtn');
+    var formError = document.getElementById('formError');
+
+    var requiredFields = [nameField, emailField, goalField, triedField, whyNowField];
+
+    // Clear validation styling on input
+    requiredFields.forEach(function(field) {
+      field.addEventListener('input', function() {
+        field.classList.remove('invalid');
+        formError.style.display = 'none';
+      });
+    });
+
+    readinessGroup.addEventListener('change', function() {
+      readinessGroup.classList.remove('invalid');
+      formError.style.display = 'none';
+    });
+
+    function showSuccess() {
+      form.innerHTML =
+        '<div class="success-message">' +
+          '<div class="success-icon">&#10003;</div>' +
+          '<h2 class="success-title">Application Received</h2>' +
+          '<p class="success-text">Thanks for taking the time to share honestly. I read every application personally and will follow up by email within 24–48 hours.</p>' +
+        '</div>';
+      document.getElementById('pageTop').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      formError.style.display = 'none';
+
+      // Silent bot trap: if honeypot has a value, pretend it succeeded without calling Make
+      if (websiteUrlField.value.trim() !== '') {
+        showSuccess();
+        return;
+      }
+
+      var firstInvalid = null;
+
+      // Validate required text fields
+      requiredFields.forEach(function(field) {
+        if (!field.value.trim()) {
+          field.classList.add('invalid');
+          if (!firstInvalid) firstInvalid = field;
+        }
+      });
+
+      // Validate email format
+      var emailVal = emailField.value.trim();
+      if (emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+        emailField.classList.add('invalid');
+        if (!firstInvalid) firstInvalid = emailField;
+      }
+
+      // Validate radio selection
+      var selectedReadiness = form.querySelector('input[name="readiness"]:checked');
+      if (!selectedReadiness) {
+        readinessGroup.classList.add('invalid');
+        if (!firstInvalid) firstInvalid = readinessGroup;
+      }
+
+      if (firstInvalid) {
+        formError.textContent = 'Please complete all required fields above.';
+        formError.style.display = 'block';
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      if (MAKE_WEBHOOK_URL === 'PASTE_YOUR_MAKE_WEBHOOK_URL_HERE') {
+        formError.textContent = 'Webhook URL not connected yet. Paste your Make.com webhook URL into apply.html.';
+        formError.style.display = 'block';
+        return;
+      }
+
+      // Sending state
+      submitBtn.textContent = 'Sending...';
+      submitBtn.style.opacity = '0.7';
+      submitBtn.style.pointerEvents = 'none';
+
+      var payload = {
+        form_name: '1on1_application',
+        full_name: nameField.value.trim(),
+        email: emailVal,
+        goal_and_pattern: goalField.value.trim(),
+        what_tried: triedField.value.trim(),
+        why_now: whyNowField.value.trim(),
+        readiness: selectedReadiness.value,
+        extra_notes: notesField.value.trim() || 'None',
+        submitted_at: new Date().toISOString(),
+        page_url: window.location.href
+      };
+
+      fetch(MAKE_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(function(response) {
+        if (response.ok) {
+          showSuccess();
+        } else {
+          throw new Error('Webhook returned ' + response.status);
+        }
+      })
+      .catch(function() {
+        formError.textContent = 'Something went wrong sending your application. Please try again or email jordan@jordancole.co directly.';
+        formError.style.display = 'block';
+        submitBtn.textContent = 'Submit Application';
+        submitBtn.style.opacity = '1';
+        submitBtn.style.pointerEvents = 'auto';
+      });
+    });
+  </script>
+</body>
+</html>
