@@ -373,14 +373,14 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label" for="firstNameField">First name</label>
+          <label class="form-label" for="nameField">Name</label>
           <input
             type="text"
             class="form-field"
-            id="firstNameField"
+            id="nameField"
             name="first_name"
-            placeholder="Your first name"
-            autocomplete="given-name"
+            placeholder="Your first and last name"
+            autocomplete="name"
             required
           />
         </div>
@@ -449,7 +449,7 @@
     var MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/qcbxhdnxjs4ucdsujd9yc0fes48m48ju';
 
     var form = document.getElementById('applyForm');
-    var firstNameField = document.getElementById('firstNameField');
+    var nameField = document.getElementById('nameField');
     var emailField = document.getElementById('emailField');
     var wantField = document.getElementById('wantField');
     var tryingField = document.getElementById('tryingField');
@@ -458,7 +458,7 @@
     var submitBtn = document.getElementById('submitBtn');
     var formError = document.getElementById('formError');
 
-    var requiredFields = [firstNameField, emailField, wantField, tryingField];
+    var requiredFields = [nameField, emailField, wantField, tryingField];
 
     // Clear validation styling on input
     requiredFields.forEach(function(field) {
@@ -519,7 +519,7 @@
 
       var payload = {
         form_name: '1on1_application',
-        first_name: firstNameField.value.trim(),
+        first_name: nameField.value.trim(),
         email: emailVal,
         what_you_want: wantField.value.trim(),
         actively_trying: tryingField.value.trim(),
