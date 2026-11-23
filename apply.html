@@ -351,7 +351,7 @@
   <div class="container" id="pageTop">
     <p class="eyebrow">1:1 Coaching Application</p>
     <h1 class="headline">Update the Belief.<br>Get What You Want.</h1>
-    <p class="subhead">25 Years of Research. One Goal. Do the Work that Actually Sets You Free to Get What You Want Out of Life.</p>
+    <p class="subhead">25 years of research. One goal. Do the work that actually sets you free to get what you want out of life.</p>
 
     <div class="dot-wrapper">
       <div class="breathing-dot"></div>
@@ -446,10 +446,7 @@
   </div>
 
   <script>
-    // =========================================================================
-    // PASTE YOUR MAKE.COM CUSTOM WEBHOOK URL BELOW
-    // =========================================================================
-    var MAKE_WEBHOOK_URL = 'PASTE_YOUR_MAKE_WEBHOOK_URL_HERE';
+    var MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/qcbxhdnxjs4ucdsujd9yc0fes48m48ju';
 
     var form = document.getElementById('applyForm');
     var firstNameField = document.getElementById('firstNameField');
@@ -512,12 +509,6 @@
         formError.textContent = 'Please complete all required fields above.';
         formError.style.display = 'block';
         firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-
-      if (MAKE_WEBHOOK_URL === 'PASTE_YOUR_MAKE_WEBHOOK_URL_HERE') {
-        formError.textContent = 'Webhook URL not connected yet. Paste your Make.com webhook URL into apply.html.';
-        formError.style.display = 'block';
         return;
       }
 
