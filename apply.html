@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apply for 1:1 Work | Jordancole.co</title>
-  <meta name="description" content="Apply to work 1:1 with Jordan Cole on changing the patterns keeping you from what you want.">
+  <meta name="description" content="Apply to work 1:1 with Jordan Cole. Update the belief. Get what you want.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,16 +79,16 @@
       line-height: 1.12;
       font-weight: 400;
       color: var(--slate);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
       animation: fadeUp 0.8s ease-out 0.2s both;
     }
 
     .subhead {
       font-family: 'DM Sans', sans-serif;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 300;
       color: var(--amber);
-      line-height: 1.5;
+      line-height: 1.55;
       margin-bottom: 1.5rem;
       animation: fadeUp 0.8s ease-out 0.25s both;
     }
@@ -215,72 +215,6 @@
       border-color: #c44e4e;
     }
 
-    /* Radio choice cards */
-    .radio-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-    }
-
-    .radio-option {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      padding: 0.9rem 1.05rem;
-      background: var(--parchment-dark);
-      border: 1.5px solid transparent;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: border-color 0.25s ease, background 0.25s ease;
-      font-size: 0.88rem;
-      font-weight: 300;
-      color: var(--slate);
-      line-height: 1.45;
-    }
-
-    .radio-option:hover {
-      border-color: var(--amber-soft);
-    }
-
-    .radio-option input[type="radio"] {
-      appearance: none;
-      -webkit-appearance: none;
-      width: 16px;
-      height: 16px;
-      min-width: 16px;
-      border: 1.5px solid var(--warm-gray);
-      border-radius: 50%;
-      margin-top: 2px;
-      position: relative;
-      transition: border-color 0.2s ease;
-      background: transparent;
-      cursor: pointer;
-    }
-
-    .radio-option input[type="radio"]:checked {
-      border-color: var(--amber);
-    }
-
-    .radio-option input[type="radio"]:checked::after {
-      content: '';
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--amber);
-    }
-
-    .radio-option:has(input[type="radio"]:checked) {
-      border-color: var(--amber-soft);
-      background: white;
-    }
-
-    .radio-group.invalid .radio-option {
-      border-color: #c44e4e;
-    }
-
     /* Honeypot field (hidden from humans, catches bots) */
     .hp-field {
       position: absolute;
@@ -315,15 +249,6 @@
 
     .form-btn:active {
       transform: translateY(0);
-    }
-
-    .form-note {
-      font-size: 0.74rem;
-      color: var(--warm-gray);
-      font-weight: 300;
-      line-height: 1.55;
-      margin-top: 0.85rem;
-      text-align: center;
     }
 
     .form-error {
@@ -412,7 +337,7 @@
       }
 
       .subhead {
-        font-size: 1.05rem;
+        font-size: 1rem;
       }
 
       .form-row {
@@ -425,15 +350,16 @@
 <body>
   <div class="container" id="pageTop">
     <p class="eyebrow">1:1 Coaching Application</p>
-    <h1 class="headline">Change the Pattern. Get What You Want.</h1>
-    <p class="subhead">Private 1:1 behavioral change work for people ready to stop negotiating with themselves.</p>
+    <h1 class="headline">Update the Belief.<br>Get What You Want.</h1>
+    <p class="subhead">25 Years of Research. One Goal. Do the Work that Actually Sets You Free to Get What You Want Out of Life.</p>
 
     <div class="dot-wrapper">
       <div class="breathing-dot"></div>
     </div>
 
     <p class="body-text">
-      Take 3 minutes to answer the questions below honestly. I read every application myself and will reply personally within 24–48 hours with next steps if it looks like a fit.
+      My 1:1 containers start with a 5-session commitment over 4 weeks at $125/session. After that, the sessions continue on a week-to-week basis.<br><br>
+      Take a few minutes to answer a couple questions below and I'll reach out shortly.
     </p>
 
     <div class="divider"></div>
@@ -447,14 +373,14 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label" for="nameField">Your name</label>
+          <label class="form-label" for="firstNameField">First name</label>
           <input
             type="text"
             class="form-field"
-            id="nameField"
-            name="full_name"
-            placeholder="First & last name"
-            autocomplete="name"
+            id="firstNameField"
+            name="first_name"
+            placeholder="Your first name"
+            autocomplete="given-name"
             required
           />
         </div>
@@ -474,54 +400,25 @@
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="goalField">What do you actually want—and what behavior or pattern keeps getting in the way?</label>
+        <label class="form-label" for="wantField">What do you want for yourself?</label>
         <textarea
           class="form-field"
-          id="goalField"
-          name="goal_and_pattern"
-          placeholder="Be as specific as you can. Where do you feel stuck or repeating the same loop?"
+          id="wantField"
+          name="what_you_want"
+          placeholder="Let it rip, what do you really want? Feel free to list a few things, we can refine it together."
           required
         ></textarea>
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="triedField">What have you already tried that hasn't stuck?</label>
+        <label class="form-label" for="tryingField">Have you been actively trying to get it?</label>
         <textarea
           class="form-field"
-          id="triedField"
-          name="what_tried"
-          placeholder="Books, habits, willpower, courses, therapy—what usually happens after a few weeks?"
+          id="tryingField"
+          name="actively_trying"
+          placeholder="No right or wrong answer, just want to know where you are on your path."
           required
         ></textarea>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label" for="whyNowField">Why now? What changes if nothing shifts in the next 6 months?</label>
-        <textarea
-          class="form-field"
-          id="whyNowField"
-          name="why_now"
-          placeholder="What makes this something you want to handle now instead of later?"
-          required
-        ></textarea>
-      </div>
-
-      <div class="form-group">
-        <span class="form-label">1:1 coaching is a 4-session container ($500). Where are you at with the investment?</span>
-        <div class="radio-group" id="readinessGroup">
-          <label class="radio-option">
-            <input type="radio" name="readiness" value="Ready to invest and start soon" required />
-            <span>I'm ready to invest the time and money and get started soon.</span>
-          </label>
-          <label class="radio-option">
-            <input type="radio" name="readiness" value="Interested, want to confirm fit first" />
-            <span>I'm serious about this—just want to talk through it and make sure we're a fit.</span>
-          </label>
-          <label class="radio-option">
-            <input type="radio" name="readiness" value="Still figuring out timing or budget" />
-            <span>Still figuring out timing or budget, just exploring for now.</span>
-          </label>
-        </div>
       </div>
 
       <div class="form-group">
@@ -536,7 +433,6 @@
       </div>
 
       <button type="submit" class="form-btn" id="submitBtn">Submit Application</button>
-      <p class="form-note">Everything you share here stays strictly confidential between us.</p>
       <p class="form-error" id="formError" style="display: none;"></p>
     </form>
 
@@ -556,18 +452,16 @@
     var MAKE_WEBHOOK_URL = 'PASTE_YOUR_MAKE_WEBHOOK_URL_HERE';
 
     var form = document.getElementById('applyForm');
-    var nameField = document.getElementById('nameField');
+    var firstNameField = document.getElementById('firstNameField');
     var emailField = document.getElementById('emailField');
-    var goalField = document.getElementById('goalField');
-    var triedField = document.getElementById('triedField');
-    var whyNowField = document.getElementById('whyNowField');
+    var wantField = document.getElementById('wantField');
+    var tryingField = document.getElementById('tryingField');
     var notesField = document.getElementById('notesField');
-    var readinessGroup = document.getElementById('readinessGroup');
     var websiteUrlField = document.getElementById('websiteUrl');
     var submitBtn = document.getElementById('submitBtn');
     var formError = document.getElementById('formError');
 
-    var requiredFields = [nameField, emailField, goalField, triedField, whyNowField];
+    var requiredFields = [firstNameField, emailField, wantField, tryingField];
 
     // Clear validation styling on input
     requiredFields.forEach(function(field) {
@@ -577,17 +471,12 @@
       });
     });
 
-    readinessGroup.addEventListener('change', function() {
-      readinessGroup.classList.remove('invalid');
-      formError.style.display = 'none';
-    });
-
     function showSuccess() {
       form.innerHTML =
         '<div class="success-message">' +
           '<div class="success-icon">&#10003;</div>' +
           '<h2 class="success-title">Application Received</h2>' +
-          '<p class="success-text">Thanks for taking the time to share honestly. I read every application personally and will follow up by email within 24–48 hours.</p>' +
+          '<p class="success-text">Talk soon.</p>' +
         '</div>';
       document.getElementById('pageTop').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -604,7 +493,7 @@
 
       var firstInvalid = null;
 
-      // Validate required text fields
+      // Validate required fields
       requiredFields.forEach(function(field) {
         if (!field.value.trim()) {
           field.classList.add('invalid');
@@ -617,13 +506,6 @@
       if (emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
         emailField.classList.add('invalid');
         if (!firstInvalid) firstInvalid = emailField;
-      }
-
-      // Validate radio selection
-      var selectedReadiness = form.querySelector('input[name="readiness"]:checked');
-      if (!selectedReadiness) {
-        readinessGroup.classList.add('invalid');
-        if (!firstInvalid) firstInvalid = readinessGroup;
       }
 
       if (firstInvalid) {
@@ -646,12 +528,10 @@
 
       var payload = {
         form_name: '1on1_application',
-        full_name: nameField.value.trim(),
+        first_name: firstNameField.value.trim(),
         email: emailVal,
-        goal_and_pattern: goalField.value.trim(),
-        what_tried: triedField.value.trim(),
-        why_now: whyNowField.value.trim(),
-        readiness: selectedReadiness.value,
+        what_you_want: wantField.value.trim(),
+        actively_trying: tryingField.value.trim(),
         extra_notes: notesField.value.trim() || 'None',
         submitted_at: new Date().toISOString(),
         page_url: window.location.href
