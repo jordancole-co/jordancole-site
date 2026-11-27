@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Behavioral X-Ray | Jordancole.co</title>
+  <meta name="description" content="Free video tutorial: Uncover the hidden beliefs keeping you from getting what you want.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --parchment: #fdfbf7;
+      --parchment-dark: #f3ede3;
+      --slate: #2c2c2c;
+      --slate-light: #5a5a5a;
+      --amber: #c48a3a;
+      --amber-hover: #a8732e;
+      --amber-soft: #d9b87a;
+      --warm-gray: #a39e95;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--parchment);
+      color: var(--slate);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain texture */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+      animation: fadeUp 0.8s ease-out 0.1s both;
+    }
+
+    .headline {
+      font-family: 'Instrument Serif', serif;
+      font-size: 3.4rem;
+      line-height: 1.08;
+      font-weight: 400;
+      color: var(--slate);
+      margin-bottom: 0.75rem;
+      animation: fadeUp 0.8s ease-out 0.18s both;
+    }
+
+    .subhead {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--amber);
+      line-height: 1.45;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s ease-out 0.24s both;
+    }
+
+    /* Breathing dot */
+    .dot-wrapper {
+      margin: 0 auto 1.5rem;
+      width: 8px;
+      animation: fadeUp 0.8s ease-out 0.28s both;
+    }
+
+    .breathing-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--amber);
+      border-radius: 50%;
+      animation: breathe 5s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: scale(1.8);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .lead-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--slate-light);
+      font-weight: 300;
+      margin-bottom: 1.75rem;
+      animation: fadeUp 0.8s ease-out 0.32s both;
+    }
+
+    .lead-text strong {
+      font-weight: 500;
+      color: var(--slate);
+    }
+
+    /* CTA + Form */
+    .signup-form {
+      animation: fadeUp 0.8s ease-out 0.38s both;
+      margin-bottom: 2.5rem;
+    }
+
+    .form-field {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--slate);
+      background: var(--parchment-dark);
+      border: 1.5px solid transparent;
+      border-radius: 12px;
+      outline: none;
+      transition: border-color 0.25s ease, background 0.25s ease;
+      margin-bottom: 0.7rem;
+      text-align: left;
+    }
+
+    .form-field::placeholder {
+      color: var(--warm-gray);
+      font-weight: 300;
+    }
+
+    .form-field:focus {
+      border-color: var(--amber-soft);
+      background: white;
+    }
+
+    .form-btn {
+      width: 100%;
+      padding: 1.1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: white;
+      background: var(--amber);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.15s ease, opacity 0.2s ease;
+      margin-top: 0.15rem;
+    }
+
+    .form-btn:hover {
+      background: var(--amber-hover);
+      transform: translateY(-1px);
+    }
+
+    .form-btn:active {
+      transform: translateY(0);
+    }
+
+    .form-btn:disabled {
+      cursor: default;
+      transform: none;
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--warm-gray);
+      font-weight: 300;
+      line-height: 1.5;
+      margin-top: 0.75rem;
+    }
+
+    .form-error {
+      font-size: 0.8rem;
+      color: #c44e4e;
+      font-weight: 400;
+      margin-top: 0.6rem;
+      display: none;
+    }
+
+    /* Success message */
+    .success-message {
+      background: var(--parchment-dark);
+      border-left: 3px solid var(--amber);
+      border-radius: 12px;
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      animation: fadeUp 0.5s ease-out both;
+    }
+
+    .success-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--amber);
+      color: white;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .success-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--slate);
+      margin-bottom: 0.5rem;
+    }
+
+    .success-text {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--slate-light);
+      font-weight: 300;
+    }
+
+    .success-text strong {
+      color: var(--slate);
+      font-weight: 500;
+    }
+
+    /* Divider */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--amber-soft);
+      margin: 2.25rem auto;
+      opacity: 0.5;
+      animation: fadeUp 0.8s ease-out 0.44s both;
+    }
+
+    /* Below-the-fold details */
+    .content-area {
+      text-align: left;
+      animation: fadeUp 0.8s ease-out 0.48s both;
+    }
+
+    .section-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.85rem;
+      font-weight: 400;
+      color: var(--slate);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .steps-box {
+      background: var(--parchment-dark);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 3px solid var(--amber);
+    }
+
+    .custom-list {
+      list-style: none;
+    }
+
+    .custom-list li {
+      position: relative;
+      padding-left: 1.35rem;
+      margin-bottom: 1rem;
+      font-size: 0.96rem;
+      line-height: 1.65;
+      color: var(--slate-light);
+      font-weight: 300;
+    }
+
+    .custom-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .custom-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-weight: bold;
+      font-size: 1.15rem;
+      line-height: 1.45;
+    }
+
+    .custom-list li strong {
+      color: var(--slate);
+      font-weight: 500;
+    }
+
+    .research-note {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--slate-light);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .back-to-form {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      text-decoration: none;
+      border-bottom: 1px solid var(--amber-soft);
+      padding-bottom: 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .back-to-form:hover {
+      color: var(--amber-hover);
+      border-color: var(--amber-hover);
+    }
+
+    /* Footer */
+    .footer-mark {
+      text-align: center;
+      margin-top: 3.5rem;
+      animation: fadeUp 0.8s ease-out 0.55s both;
+    }
+
+    .footer-mark a {
+      display: inline-block;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-mark a:hover {
+      opacity: 1;
+    }
+
+    .footer-mark img {
+      width: 44px;
+      height: auto;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 1.25rem;
+      font-size: 0.72rem;
+      color: var(--warm-gray);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 2.5rem 1.25rem 4rem;
+      }
+
+      .headline {
+        font-size: 2.65rem;
+      }
+
+      .subhead {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 1.65rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="eyebrow">Free Video Tutorial</div>
+    <h1 class="headline">The Behavioral X-Ray</h1>
+    <p class="subhead">Uncover the Hidden Beliefs Keeping You Stuck</p>
+
+    <div class="dot-wrapper">
+      <div class="breathing-dot"></div>
+    </div>
+
+    <p class="lead-text">
+      If there’s something you’ve been wanting for a long time and still haven’t been able to get, do, or change, it isn’t a willpower problem. Enter your email below and I’ll send you the step-by-step walkthrough to uncover <strong>what’s actually running the show.</strong>
+    </p>
+
+    <form class="signup-form" id="signupForm" novalidate>
+      <input
+        type="email"
+        class="form-field"
+        id="emailField"
+        name="email_address"
+        placeholder="Enter your email address"
+        aria-label="Email address"
+        autocomplete="email"
+        required
+      />
+      <button type="submit" class="form-btn" id="submitBtn">SEND ME THE VIDEO</button>
+      <p class="form-note">No spam. Unsubscribe anytime.</p>
+      <p class="form-error" id="formError" role="alert">Please enter a valid email address.</p>
+    </form>
+
+    <div class="divider"></div>
+
+    <div class="content-area">
+      <h2 class="section-title">What you’ll walk through in this tutorial:</h2>
+
+      <div class="steps-box">
+        <ul class="custom-list">
+          <li><strong>Why willpower keeps stalling out:</strong> How your mind and body use outdated beliefs—many formed when you were a child—to protect you from anxiety and stress.</li>
+          <li><strong>Building your Behavioral X-Ray:</strong> The exact set of questions I walk through to expose the hidden commitments working directly against your goal.</li>
+          <li><strong>Spotting your Big Assumption:</strong> How to isolate the single belief locking you into the same behavioral loop so you can actually start updating it.</li>
+        </ul>
+      </div>
+
+      <p class="research-note">
+        Informed by over 25 years of developmental psychology research—simple, grounded, and immediately usable on your own.
+      </p>
+
+      <div style="text-align: center;">
+        <a href="#signupForm" class="back-to-form" id="backToFormLink">Get the free tutorial ↑</a>
+      </div>
+    </div>
+
+    <div class="footer-mark">
+      <a href="https://jordancole.co" aria-label="Visit jordancole.co">
+        <img src="images/logo.svg" alt="JC" />
+      </a>
+    </div>
+
+    <p class="copyright">Jordan Cole 2026. All Rights Reserved.</p>
+  </div>
+
+  <script>
+    (function() {
+      var signupForm = document.getElementById('signupForm');
+      var emailField = document.getElementById('emailField');
+      var formError = document.getElementById('formError');
+      var submitBtn = document.getElementById('submitBtn');
+      var backToFormLink = document.getElementById('backToFormLink');
+
+      // Focus email input when clicking the bottom scroll link
+      if (backToFormLink) {
+        backToFormLink.addEventListener('click', function() {
+          setTimeout(function() {
+            if (emailField) {
+              emailField.focus();
+            }
+          }, 350);
+        });
+      }
+
+      // Clear validation error while typing
+      emailField.addEventListener('input', function() {
+        formError.style.display = 'none';
+        emailField.style.borderColor = 'transparent';
+      });
+
+      // Handle submit via Kit V3 API (Form ID: 10251891)
+      signupForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var email = emailField.value.trim();
+
+        // Validate email format
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          formError.textContent = 'Please enter a valid email address.';
+          formError.style.display = 'block';
+          emailField.style.borderColor = '#c44e4e';
+          emailField.focus();
+          return;
+        }
+
+        // Loading state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.style.opacity = '0.7';
+        submitBtn.disabled = true;
+
+        fetch('https://api.convertkit.com/v3/forms/10251891/subscribe', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+          },
+          body: JSON.stringify({
+            api_key: 'XKRQNbxxnep4Zy1pNrLmFQ',
+            email: email
+          })
+        })
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          if (data && data.subscription) {
+            signupForm.innerHTML =
+              '<div class="success-message">' +
+                '<div class="success-icon">&#10003;</div>' +
+                '<h2 class="success-title">Check your inbox</h2>' +
+                '<p class="success-text">Your confirmation email is on the way—click the button inside to unlock the <strong>Behavioral X-Ray</strong> video tutorial. (Check your spam or Promotions folder just in case.)</p>' +
+              '</div>';
+          } else {
+            formError.textContent = (data && data.message) ? data.message : 'Something went wrong. Please try again.';
+            formError.style.display = 'block';
+            submitBtn.textContent = 'SEND ME THE VIDEO';
+            submitBtn.style.opacity = '1';
+            submitBtn.disabled = false;
+          }
+        })
+        .catch(function() {
+          formError.textContent = 'Something went wrong. Please try again.';
+          formError.style.display = 'block';
+          submitBtn.textContent = 'SEND ME THE VIDEO';
+          submitBtn.style.opacity = '1';
+          submitBtn.disabled = false;
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
